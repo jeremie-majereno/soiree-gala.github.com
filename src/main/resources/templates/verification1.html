@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vérifier - Gestion des Paiements</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container py-4">
+    <div class="page-header fade-in">
+        <div class="mb-3">
+            <i class="fas fa-search fa-3x icon-lg"></i>
+            <h1 class="display-4 fw-bold">Vérifier un paiement</h1>
+        </div>
+        <p class="lead">Vérifiez le statut de paiement d'une personne</p>
+        <a href="/" class="btn btn-outline-info">
+            <i class="fas fa-arrow-left me-2"></i>Retour à l'accueil
+        </a>
+    </div>
+
+    <div class="card shadow-lg">
+        <div class="card-header info">
+            <h2 class="h4 mb-0"><i class="fas fa-search me-2"></i>Vérifier le paiement</h2>
+        </div>
+        <div class="card-body p-4">
+            <form id="verifForm" action="/verifier" method="post" class="needs-validation" novalidate>
+                <div class="mb-4">
+                    <label for="nomVerif" class="form-label fw-medium">Nom de la personne:</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        <input type="text" id="nomVerif" name="nomVerif" class="form-control" placeholder="Rechercher un nom" required>
+                    </div>
+                    <div class="invalid-feedback">Veuillez saisir un nom</div>
+                </div>
+
+                <button type="submit" class="btn btn-info text-white w-100 py-3 fw-bold">
+                    <i class="fas fa-check-circle me-2"></i>Vérifier le statut
+                </button>
+            </form>
+
+            <div th:if="${resultatVerif != null or erreurVerif != null}" class="mt-5">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-light">
+                        <h3 class="h5 mb-0"><i class="fas fa-info-circle me-2"></i>Résultat de la vérification</h3>
+                    </div>
+                    <div class="card-body">
+                        <div th:if="${resultatVerif}" class="alert fade show" th:classappend="${resultatVerif.contains('Oui')} ? 'alert-success' : 'alert-danger'">
+                            <div class="d-flex align-items-center">
+                                <i th:class="${resultatVerif.contains('Oui')} ? 'fas fa-check-circle fa-2x me-3' : 'fas fa-times-circle fa-2x me-3'"></i>
+                                <div th:if="${resultatVerif != null}" >
+                            </div>
+                        </div>
+                        <div th:if="${erreurVerif}" class="alert alert-danger fade show" role="alert" th:text="${erreurVerif}"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="text-center py-4">
+    <div class="container">
+        <p class="mb-0">Système de gestion des paiements &copy; 2023</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/script.js"></script>
+</body>
+</html>

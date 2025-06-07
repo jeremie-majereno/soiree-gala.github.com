@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil - Gestion des Paiements</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container py-4">
+    <div class="page-header fade-in">
+        <div class="mb-4">
+            <i class="fas fa-money-check-alt fa-3x icon-lg"></i>
+            <h1 class="display-4 fw-bold">Gestion des Paiements</h1>
+        </div>
+        <p class="lead">Vérifiez et gérez les paiements de vos membres simplement et efficacement</p>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100 shadow-lg">
+                <div class="card-body text-center p-4">
+                    <div class="icon-container mb-4">
+                        <i class="fas fa-user-plus fa-3x text-primary"></i>
+                    </div>
+                    <h3 class="card-title fw-bold mb-3">Ajouter</h3>
+                    <p class="card-text mb-4">Ajouter une nouvelle personne à la liste des participants.</p>
+                    <a href="/ajouter" class="btn btn-primary w-100">
+                        <i class="fas fa-arrow-right me-2"></i>Accéder
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100 shadow-lg">
+                <div class="card-body text-center p-4">
+                    <div class="icon-container mb-4">
+                        <i class="fas fa-edit fa-3x text-warning"></i>
+                    </div>
+                    <h3 class="card-title fw-bold mb-3">Modifier</h3>
+                    <p class="card-text mb-4">Modifier le statut de paiement d'une personne.</p>
+                    <a href="/modifier" class="btn btn-warning w-100">
+                        <i class="fas fa-arrow-right me-2"></i>Accéder
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100 shadow-lg">
+                <div class="card-body text-center p-4">
+                    <div class="icon-container mb-4">
+                        <i class="fas fa-search fa-3x text-info"></i>
+                    </div>
+                    <h3 class="card-title fw-bold mb-3">Vérifier</h3>
+                    <p class="card-text mb-4">Vérifier si une personne a payé.</p>
+                    <a href="/verifier" class="btn btn-info w-100">
+                        <i class="fas fa-arrow-right me-2"></i>Accéder
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-5">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h4 class="fw-bold mb-3">Statistiques rapides</h4>
+                <div class="d-flex justify-content-center gap-5">
+                    <div>
+                        <div class="fw-bold fs-3 text-success">85</div>
+                        <div class="text-muted">Ont payé</div>
+                    </div>
+                    <div>
+                        <div class="fw-bold fs-3 text-secondary">15</div>
+                        <div class="text-muted">En attente</div>
+                    </div>
+                    <div>
+                        <div class="fw-bold fs-3">100</div>
+                        <div class="text-muted">Total</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="text-center py-4">
+    <div class="container">
+        <p class="mb-0">Système de gestion des paiements &copy; 2023</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

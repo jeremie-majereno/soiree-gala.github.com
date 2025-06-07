@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier - Gestion des Paiements</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container py-4">
+    <div class="page-header fade-in">
+        <div class="mb-3">
+            <i class="fas fa-edit fa-3x icon-lg"></i>
+            <h1 class="display-4 fw-bold">Modifier un statut</h1>
+        </div>
+        <p class="lead">Modifiez le statut de paiement d'une personne</p>
+        <a href="/" class="btn btn-outline-warning">
+            <i class="fas fa-arrow-left me-2"></i>Retour à l'accueil
+        </a>
+    </div>
+
+    <div class="card shadow-lg">
+        <div class="card-header warning">
+            <h2 class="h4 mb-0"><i class="fas fa-edit me-2"></i>Modifier le statut de paiement</h2>
+        </div>
+        <div class="card-body p-4">
+            <form id="modifForm" action="/modifier" method="post" class="needs-validation" novalidate>
+                <div class="mb-4">
+                    <label for="motDePasseModif" class="form-label fw-medium">Mot de passe:</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                        <input type="password" id="motDePasseModif" name="motDePasseModif" class="form-control" required>
+                        <button type="button" class="btn btn-outline-secondary toggle-password" data-target="motDePasseModif">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="invalid-feedback">Veuillez saisir le mot de passe</div>
+                </div>
+
+                <div class="mb-4">
+                    <label for="nomModif" class="form-label fw-medium">Nom de la personne:</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        <input type="text" id="nomModif" name="nomModif" class="form-control" placeholder="Rechercher un nom" required>
+                    </div>
+                    <div class="invalid-feedback">Veuillez saisir un nom</div>
+                </div>
+
+                <div class="mb-4">
+                    <label for="nouveauStatut" class="form-label fw-medium">Nouveau statut:</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-exchange-alt"></i></span>
+                        <select id="nouveauStatut" name="nouveauStatut" class="form-select" required>
+                            <option value="oui">Oui, la personne a payé</option>
+                            <option value="non">Non, la personne n'a pas encore payé</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-warning w-100 py-3 fw-bold">
+                    <i class="fas fa-sync-alt me-2"></i>Mettre à jour le statut
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<footer class="text-center py-4">
+    <div class="container">
+        <p class="mb-0">Système de gestion des paiements &copy; 2023</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/script.js"></script>
+</body>
+</html>
